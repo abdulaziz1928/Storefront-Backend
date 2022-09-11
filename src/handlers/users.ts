@@ -9,8 +9,12 @@ dotenv.config();
 const us = new Users();
 
 const index = async (req: Request, res: Response) => {
-  const result = await us.index();
-  res.status(200).json(result);
+  try {
+    const result = await us.index();
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).send('' + err);
+  }
 };
 const show = async (req: Request, res: Response) => {
   try {

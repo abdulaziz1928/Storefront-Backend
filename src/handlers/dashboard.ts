@@ -11,7 +11,7 @@ const showOrderDetails = async (req: Request, res: Response) => {
     const result = await ds.showOrderDetails(req.params.id);
     res.status(200).json(result);
   } catch (err) {
-    res.send('' + err);
+    res.status(400).send('' + err);
   }
 };
 const dashboard_routes = (app: express.Application) => {

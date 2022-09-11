@@ -7,16 +7,28 @@ dotenv.config();
 const ord = new Orders();
 
 const index = async (req: Request, res: Response) => {
-  const result = await ord.index();
-  res.status(200).json(result);
+  try {
+    const result = await ord.index();
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).send('' + err);
+  }
 };
 const show = async (req: Request, res: Response) => {
-  const result = await ord.show(req.params.id);
-  res.status(200).json(result);
+  try {
+    const result = await ord.show(req.params.id);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).send('' + err);
+  }
 };
 const destroy = async (req: Request, res: Response) => {
-  const result = await ord.delete(req.params.id);
-  res.status(200).json(result);
+  try {
+    const result = await ord.delete(req.params.id);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).send('' + err);
+  }
 };
 const create = async (req: Request, res: Response) => {
   const body = req.body;
@@ -24,8 +36,12 @@ const create = async (req: Request, res: Response) => {
     status: body.status,
     user_id: body.user_id,
   };
-  const result = await ord.create(product);
-  res.status(200).json(result);
+  try {
+    const result = await ord.create(product);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).send('' + err);
+  }
 };
 const addProduct = async (req: Request, res: Response) => {
   try {

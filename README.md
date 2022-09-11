@@ -19,7 +19,7 @@ psql -U postgres
 
 #### in psql run the following:
 
-```
+```sql
 CREATE USER tester WITH PASSWORD 'password123';
 CREATE DATABASE postgres;
 CREATE DATABASE postgres_test;
