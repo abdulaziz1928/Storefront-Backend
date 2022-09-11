@@ -20,7 +20,7 @@
 - http verb: POST
 - body:
 
-```json
+```
 {
   name: "",
   category: "",
@@ -48,7 +48,7 @@
 - http verb: POST
 - body:
 
-```json
+```
 {
   firstname: "",
   lastname: "",
